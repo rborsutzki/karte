@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BENACO · Tollwood 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #2a2218;
+  --bg2: #1e1a12;
+  --bg3: #221c10;
+  --gold: #c8a050;
+  --warm: #f0e0c0;
+  --price: #f0d080;
+  --muted: #9a8870;
+  --tag-vegan: #4a7c4e;
+  --tag-veggi: #6a7c4e;
+  --accent: #3a2e1e;
+  --border: #2e2819;
+  --border2: #3a3020;
+  --red: #c04040;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--gold);
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  letter-spacing: .28em;
+  color: var(--gold);
+  font-weight: 600;
+}
+.bio-badge {
+  font-size: .55rem;
+  color: var(--tag-vegan);
+  border: 1px solid var(--tag-vegan);
+  padding: .2rem .35rem;
+  line-height: 1.4;
+  text-align: center;
+  letter-spacing: .05em;
+}
+
+/* TABS */
+nav {
+  background: var(--bg2);
+  display: flex;
+  border-bottom: 1px solid var(--border2);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+nav::-webkit-scrollbar { display: none; }
+nav button {
+  flex: 1;
+  min-width: 70px;
+  padding: .65rem .4rem;
+  font-size: .62rem;
+  letter-spacing: .1em;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: color .2s;
+  white-space: nowrap;
+}
+nav button.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* MOTTO */
+.motto {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .78rem;
+  color: var(--muted);
+  padding: .75rem 1.2rem;
+  border-bottom: 1px solid var(--border2);
+}
+
+/* LOADING */
+.loading {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+  font-size: .85rem;
+  letter-spacing: .1em;
+}
+
+/* SECTION */
+.section { padding: 1rem 1.2rem .3rem; }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .7rem;
+  letter-spacing: .32em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: .35rem;
+  margin-bottom: .7rem;
+}
+
+/* ITEM */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--border);
+  gap: .8rem;
+}
+.item:last-child { border-bottom: none; }
+.item-left { flex: 1; }
+.item-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: .35rem;
+  flex-wrap: wrap;
+  margin-bottom: .15rem;
+}
+.item-name { font-size: .93rem; font-weight: 400; color: var(--warm); }
+.item-sub { font-size: .68rem; color: var(--muted); line-height: 1.45; }
+.item-detail { font-size: .62rem; color: #7a6a52; line-height: 1.4; font-style: italic; margin-top: .12rem; }
+.allergens { font-size: .6rem; color: #7a6a52; letter-spacing: .04em; }
+.item-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--price);
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: right;
+  min-width: 55px;
+}
+.item-price-sub { font-size: .6rem; color: var(--muted); text-align: right; margin-top: .08rem; }
+
+/* TAGS */
+.tag { font-size: .5rem; font-weight: 500; letter-spacing: .05em; padding: .1rem .28rem; border-radius: 2px; text-transform: lowercase; }
+.tag-vegan { background: var(--tag-vegan); color: #d0f0d0; }
+.tag-veggi { background: var(--tag-veggi); color: #d8f0c0; }
+.tag-af { background: #2a3a4a; color: #a0c0d0; }
+.tag-tages { background: #4a3a10; color: var(--gold); border: 1px solid var(--gold); }
+.cold-hint { font-size: .58rem; color: #7ab0c8; margin-bottom: .05rem; display: block; }
+
+/* HIGHLIGHT SECTION (Besondere, Tagesgerichte) */
+.highlight-wrap {
+  background: var(--bg3);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  margin: .3rem 0;
+}
+
+/* EXTRAS */
+.extras-box {
+  margin: .4rem 1.2rem;
+  padding: .55rem .8rem;
+  background: var(--accent);
+  border-left: 2px solid var(--gold);
+  font-size: .66rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.extras-box strong { color: var(--warm); }
+
+/* KURZE */
+.kurze-grid { display: flex; flex-wrap: wrap; gap: .3rem; margin: .3rem 0 .5rem; }
+.kurze-tag { background: var(--accent); border: 1px solid #4a3a28; padding: .25rem .5rem; font-size: .7rem; color: var(--warm); border-radius: 2px; }
+.kurze-prices { display: flex; gap: 2rem; margin-top: .2rem; }
+.kurze-price-item { display: flex; flex-direction: column; }
+.kurze-price-label { font-size: .62rem; color: var(--muted); }
+.kurze-price-val { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--price); font-weight: 600; }
+
+/* FOOTER */
+footer {
+  margin: 1.2rem 1.2rem 0;
+  padding-top: .8rem;
+  border-top: 1px solid var(--border2);
+  font-size: .6rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+footer strong { color: var(--warm); }
+.footer-note { margin-top: .3rem; color: #5a4a32; font-size: .56rem; }
+
+/* ERROR */
+.error-box {
+  margin: 1rem 1.2rem;
+  padding: .8rem;
+  background: #3a1010;
+  border: 1px solid var(--red);
+  border-radius: 3px;
+  font-size: .75rem;
+  color: #f0a0a0;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">BENACO</div>
+  <div style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:var(--muted);letter-spacing:.15em">Tollwood 2026</div>
+  <div class="bio-badge">BIO<br>DE-ÖKO<br>006</div>
+</header>
+
+<nav id="nav"></nav>
+<div class="motto">„Mit Gefühl statt nur dabei — die Rückeroberung der Empathie"</div>
+<div id="content"><div class="loading">Karte wird geladen …</div></div>
+
+<script>
+const SHEET_ID = '1f2W34JCwx9wF2EbE0e2omqvjfNsRPyylmxMaymb22_s';
+const SHEET_NAME = 'benaco_karte';
+const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(SHEET_NAME)}`;
+
+// Tab config — order and display names
+const TAB_CONFIG = [
+  { key: 'PIZZA',       label: 'Pizza' },
+  { key: 'TAGESPIZZA',  label: 'Tages-Pizza' },
+  { key: 'GEBAECK',     label: 'Gebäck' },
+  { key: 'SPRITZ',      label: 'Spritz' },
+  { key: 'COCKTAIL',    label: 'Cocktails' },
+  { key: 'WEIN',        label: 'Wein' },
+  { key: 'BIER',        label: 'Bier' },
+  { key: 'ALKOHOLFREI', label: 'Alkoholfrei' },
+  { key: 'KAFFEE',      label: 'Kaffee' },
+  { key: 'KURZE',       label: 'Kurze' },
+];
+
+// Vegan/veggi mapping (by name)
+const VEGAN = ['Pane Bianco','Pane Rosso','Funghi Bianco','Emozione'];
+const VEGGI = ['Pane Speciale','Margherita','Spinaci','Vegetaria','Funghi',
+               'Spinaci e Gorgonzola','Italiana','Lago','Cuore','Empatia','Bambino',
+               'Tagespizza des Tages'];
+const KALT  = ['Hauswein Rot'];
+const AF    = ['Crodino Spritz'];
+
+let allData = [];
+let activeTab = 'PIZZA';
+
+// Parse CSV
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g, '').trim());
+  return lines.slice(1).map(line => {
+    const vals = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"') { inQ = !inQ; }
+      else if (c === ',' && !inQ) { vals.push(cur.trim()); cur = ''; }
+      else { cur += c; }
+    }
+    vals.push(cur.trim());
+    const obj = {};
+    headers.forEach((h, i) => obj[h] = (vals[i] || '').replace(/^"|"$/g, '').trim());
+    return obj;
+  }).filter(r => r.kategorie && r.sichtbar === 'ja');
+}
+
+function fmt(p) {
+  const n = parseFloat(p);
+  return isNaN(n) ? p : n.toFixed(2).replace('.', ',') + ' €';
+}
+
+function tagHTML(name) {
+  if (VEGAN.includes(name)) return '<span class="tag tag-vegan">vegan</span>';
+  if (VEGGI.includes(name)) return '<span class="tag tag-veggi">veggi</span>';
+  return '';
+}
+
+function renderItem(row) {
+  const isKalt = KALT.includes(row.name);
+  const isAF = AF.includes(row.name);
+  const allergens = row.allergene ? `<span class="allergens">${row.allergene}</span>` : '';
+  const afTag = isAF ? '<span class="tag tag-af">alkoholfrei</span>' : '';
+  const tagesTag = row.kategorie === 'TAGESPIZZA' ? '<span class="tag tag-tages">heute</span>' : '';
+  const detail = row.detail ? `<div class="item-detail">${row.detail}</div>` : '';
+  const desc = row.beschreibung ? `<div class="item-sub">${row.beschreibung}</div>` : '';
+  const kalt = isKalt ? '<span class="cold-hint">❄ kalt serviert</span>' : '';
+
+  return `<div class="item">
+    <div class="item-left">
+      ${kalt}
+      <div class="item-name-row">
+        ${tagHTML(row.name)}
+        ${tagesTag}
+        <span class="item-name">${row.name}</span>
+        ${allergens}
+        ${afTag}
+      </div>
+      ${desc}
+      ${detail}
+    </div>
+    <div class="item-price">${fmt(row.preis)}</div>
+  </div>`;
+}
+
+function renderTab(key) {
+  const items = allData.filter(r => r.kategorie === key);
+  if (!items.length) return '<div class="section"><p style="color:var(--muted);font-size:.8rem;padding:.5rem 0">Keine Einträge</p></div>';
+
+  // Special: KURZE
+  if (key === 'KURZE') {
+    const tags = items.map(r => `<span class="kurze-tag">${r.name}</span>`).join('');
+    const price2 = fmt(items[0]?.preis || '3.50');
+    const price4 = fmt((parseFloat(items[0]?.preis || 3.50) * 2 - 0.50).toFixed(2));
+    return `<div class="section">
+      <div class="section-title">Kurze · 2 cl / 4 cl</div>
+      <div class="kurze-grid">${tags}</div>
+      <div class="kurze-prices">
+        <div class="kurze-price-item"><span class="kurze-price-label">2 cl</span><span class="kurze-price-val">${price2}</span></div>
+        <div class="kurze-price-item"><span class="kurze-price-label">4 cl</span><span class="kurze-price-val">${fmt('6.50')}</span></div>
+      </div>
+    </div>`;
+  }
+
+  // PIZZA: split into sections
+  if (key === 'PIZZA') {
+    const besondere = ['Cuore','Empatia','Emozione','Bambino'];
+    const normal = items.filter(r => !besondere.includes(r.name));
+    const special = items.filter(r => besondere.includes(r.name));
+    return `
+      <div class="section">
+        <div class="section-title">Alle Pizzen</div>
+        ${normal.map(renderItem).join('')}
+      </div>
+      ${special.length ? `<div class="highlight-wrap"><div class="section" style="padding-bottom:.8rem">
+        <div class="section-title" style="margin-top:.3rem">Besondere</div>
+        ${special.map(renderItem).join('')}
+      </div></div>` : ''}
+      <div class="extras-box">
+        <strong>Extras:</strong> Standard +1 € · Knoblauch +1,50 € · Gemüse +1,50 € · Parmesan +2 € · Salami scharf +2 € · Speck +2 € · Gorgonzola +2 €
+      </div>`;
+  }
+
+  const label = TAB_CONFIG.find(t => t.key === key)?.label || key;
+  return `<div class="section">
+    <div class="section-title">${label}</div>
+    ${items.map(renderItem).join('')}
+  </div>`;
+}
+
+function renderFooter() {
+  return `<footer>
+    <div><strong>A</strong> Gluten &nbsp;<strong>E</strong> Soja &nbsp;<strong>G</strong> Milch/Laktose &nbsp;<strong>H</strong> Nüsse &nbsp;<strong>L</strong> Sulfite &nbsp;<strong>1</strong> Farbstoff &nbsp;<strong>2</strong> Farbstoff (Aperol/Campari) &nbsp;<strong>13</strong> Chinin</div>
+    <div class="footer-note">Alle Zutaten Bio · DE-ÖKO-006 · Preise inkl. 7% MwSt. · Pfand 2 € · Stand 48 · Benaco GmbH · Tollwood 2026</div>
+  </footer>`;
+}
+
+function buildNav() {
+  const nav = document.getElementById('nav');
+  const available = TAB_CONFIG.filter(t => allData.some(r => r.kategorie === t.key));
+  nav.innerHTML = available.map(t =>
+    `<button onclick="switchTab('${t.key}')" id="tab-${t.key}" class="${t.key === activeTab ? 'active' : ''}">${t.label}</button>`
+  ).join('');
+}
+
+function switchTab(key) {
+  activeTab = key;
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('tab-' + key);
+  if (btn) { btn.classList.add('active'); btn.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'}); }
+  document.getElementById('content').innerHTML = renderTab(key) + renderFooter();
+}
+
+async function load() {
+  try {
+    const res = await fetch(URL);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const text = await res.text();
+    allData = parseCSV(text);
+    buildNav();
+    switchTab(activeTab);
+  } catch(e) {
+    document.getElementById('content').innerHTML = `
+      <div class="error-box">
+        Karte konnte nicht geladen werden.<br>
+        Bitte prüfe ob das Google Sheet öffentlich geteilt ist.<br>
+        <small style="color:#c08080">${e.message}</small>
+      </div>`;
+  }
+}
+
+load();
+// Auto-refresh every 5 minutes
+setInterval(load, 5 * 60 * 1000);
+</script>
+</body>
+</html>
