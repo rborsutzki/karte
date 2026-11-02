@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pizzahütte by BENACO · Tollwood 2026</title>
+<title>Pizzahütte by BENACO · Tollwood Winter 2026</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
 :root{--bg:#2a2218;--bg2:#1e1a12;--bg3:#221c10;--gold:#c8a050;--warm:#f0e0c0;--price:#f0d080;--muted:#9a8870;--tv:#4a7c4e;--tg:#6a7c4e;--acc:#3a2e1e;--bd:#2e2819;--bd2:#3a3020;}
@@ -50,6 +50,8 @@ nav button.active{color:var(--gold);border-bottom-color:var(--gold);}
 .tv{background:#4a7c4e;color:#d0f0d0;}
 .tg{background:#6a7c4e;color:#d8f0c0;}
 .taf{background:#2a3a4a;color:#a0c0d0;}
+.tb{background:#1F5A1C;color:#d8f0c8;}
+.tn{background:#9E2A16;color:#ffe0d0;}
 .tt{background:#4a3a10;color:var(--gold);border:1px solid var(--gold);}
 .kalt{font-size:.58rem;color:#7ab0c8;margin-bottom:.05rem;display:block;}
 .hl{background:var(--bg3);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);margin:.3rem 0;}
@@ -90,84 +92,74 @@ footer strong{color:var(--warm);}
 </div>
 
 <nav id="nav"></nav>
-<div class="motto">„Mit Gefühl statt nur dabei — die Rückeroberung der Empathie" · Tollwood Sommer 2026</div>
+<div class="motto">Tollwood Winterfestival 2026 · 24. November – 23. Dezember · Stand 38</div>
 <div id="content"></div>
 
 <script>
 const DATA = [
-  {k:'PIZZA',n:'Pane Bianco',d:'Knoblauch-Olivenöl · Rosmarin · Meersalz',dt:'',p:4.80,a:'A',typ:'vegan'},
-  {k:'PIZZA',n:'Pane Rosso',d:'Tomatensauce · Knoblauch · Olivenöl · Oregano',dt:'',p:4.80,a:'A',typ:'vegan'},
-  {k:'PIZZA',n:'Pane Speciale',d:'Tomatensauce · Knoblauch · Olivenöl · Parmesan · Rucola',dt:'',p:6.80,a:'A, G',typ:'veggi'},
-  {k:'PIZZA',n:'Margherita',d:'Tomatensauce · Käse · Basilikum',dt:'',p:6.80,a:'A, G',typ:'veggi'},
-  {k:'PIZZA',n:'Funghi Bianco',d:'Knoblauch-Olivenöl · frische Champignons · Rucola',dt:'',p:7.50,a:'A',typ:'vegan'},
-  {k:'PIZZA',n:'Spinaci',d:'Tomatensauce · Käse · Blattspinat · Knoblauch',dt:'',p:7.50,a:'A, G',typ:'veggi'},
-  {k:'PIZZA',n:'Vegetaria',d:'Tomatensauce · Käse · Paprika · Zucchini · Oliven · Rucola',dt:'',p:7.50,a:'A, G, L',typ:'veggi'},
-  {k:'PIZZA',n:'Funghi',d:'Tomatensauce · Käse · frische Champignons',dt:'',p:7.80,a:'A, G',typ:'veggi'},
-  {k:'PIZZA',n:'Spinaci e Gorgonzola',d:'Tomatensauce · Käse · Blattspinat · Gorgonzola',dt:'',p:7.80,a:'A, G',typ:'veggi'},
-  {k:'PIZZA',n:'Italiana',d:'Tomatensauce · Käse · Cherrytomaten · Rucola · Parmesan',dt:'',p:7.80,a:'A, G',typ:'veggi'},
-  {k:'PIZZA',n:'Lago',d:'Crème fraîche · Käse · Rucola · Cherrytomaten · Parmesan',dt:'',p:8.20,a:'A, G',typ:'veggi'},
-  {k:'PIZZA',n:'Salami',d:'Tomatensauce · Käse · Salami',dt:'',p:8.20,a:'A, G',typ:''},
-  {k:'PIZZA',n:'Prosciutto',d:'Tomatensauce · Käse · Prosciutto',dt:'',p:8.20,a:'A, G',typ:''},
-  {k:'PIZZA',n:'Salami e Prosciutto',d:'Tomatensauce · Käse · Salami · Prosciutto',dt:'',p:8.50,a:'A, G',typ:''},
-  {k:'PIZZA',n:'Milano',d:'Tomatensauce · Käse · Salami · Paprika · Oliven',dt:'',p:8.50,a:'A, G, L',typ:''},
-  {k:'PIZZA',n:'Regina',d:'Tomatensauce · Käse · Schinken · frische Champignons',dt:'',p:8.50,a:'A, G',typ:''},
-  {k:'PIZZA',n:'Diavola',d:'Tomatensauce · Käse · scharfe Salami · Peperoni',dt:'',p:8.50,a:'A, G',typ:''},
-  {k:'PIZZA',n:'Benaco',d:'Tomatensauce · Käse · Südtiroler Bio-Speck · Crème fraîche · Walnuss · Rucola',dt:'',p:9.50,a:'A, G, H',typ:''},
-  {k:'PIZZA',n:'Cuore',d:'Tomatensauce · Käse · Cherrytomaten · Ricotta · Basilikum · Olivenöl',dt:'',p:9.50,a:'A, G',typ:'veggi',bes:true},
-  {k:'PIZZA',n:'Empatia',d:'Crème fraîche · Käse · Ricotta · Rucola · Cherrytomaten · Olivenöl',dt:'',p:9.50,a:'A, G',typ:'veggi',bes:true},
-  {k:'PIZZA',n:'Emozione',d:'Tomatensauce · Zucchini · Aubergine · Rucola · Olivenöl',dt:'',p:8.80,a:'A',typ:'vegan',bes:true},
-  {k:'PIZZA',n:'Bambino',d:'Bio-Nuss-Nougat-Creme — natur oder con Banana',dt:'',p:4.80,a:'A, G, H, E',typ:'veggi',bes:true},
-  {k:'GEBÄCK',n:'Bio Gebäck',d:'Frisches Bio-Gebäck vom Tag',dt:'',p:4.90,a:'',typ:''},
-  {k:'SPRITZ',n:'Aperol Spritz',d:'Prosecco / Weißwein · Aperol · Soda · Orangenscheibe · 0,25 l',dt:'Bitter-fruchtig · leicht herb · der Klassiker',p:7.20,a:'L, 2',typ:''},
-  {k:'SPRITZ',n:'Campari Spritz',d:'Prosecco / Weißwein · Campari · Soda · Zitrone · 0,25 l',dt:'Intensiv bitter · leicht süß · tiefrot',p:7.20,a:'L, 2',typ:''},
-  {k:'SPRITZ',n:'Hugo',d:'Prosecco / Weißwein · Holundersirup · Soda · Minze · Limette · 0,25 l',dt:'Blumig-frisch · leicht süß · südtirolische Erfindung',p:7.20,a:'L',typ:''},
-  {k:'SPRITZ',n:'Lillet Wild Berry',d:'Lillet Blanc · Wild Berry · Beeren · 0,25 l',dt:'Fruchtig-elegant · Weinaperitif aus Bordeaux',p:7.20,a:'L',typ:''},
-  {k:'SPRITZ',n:'Sarti Spritz',d:'Prosecco / Weißwein · Sarti Rose · Soda · 0,25 l',dt:'Rosenblüte · zart süß · romantisch-fruchtig',p:7.20,a:'L',typ:''},
-  {k:'SPRITZ',n:'Italicus Spritz',d:'Prosecco · Italicus Bergamotte · Soda · Rosmarin · Zitrone · 0,25 l',dt:'Bergamotte-Rosenlikör aus Italien · zitrusblumig',p:7.20,a:'L',typ:''},
-  {k:'SPRITZ',n:'Crodino Spritz',d:'Crodino · Soda · Orangenscheibe · 0,25 l',dt:'Kräuterbitter ohne Alkohol · herb-fruchtig',p:6.50,a:'',typ:'af'},
-  {k:'COCKTAIL',n:'Gin Tonic',d:'Malfy Gin · Tonic · Limette · 0,2 l',dt:'Malfy — sizilianischer Premium Gin · trocken-aromatisch',p:9.50,a:'13',typ:''},
-  {k:'COCKTAIL',n:'Negroni',d:'Gin · Campari · Vermouth rosso · 0,2 l',dt:'Bitter-süß-komplex · ein Jahrhundertcocktail',p:9.50,a:'2',typ:''},
-  {k:'COCKTAIL',n:'Sirena',d:'Rum · Limette · Basilikum · Rohrzucker · 0,2 l',dt:'Frisch-würzig · mediterrane Note',p:9.50,a:'',typ:''},
-  {k:'COCKTAIL',n:'Dolce Vita',d:'Amaretto · Vodka · Orange · Zitrone · 0,2 l',dt:'Süß-fruchtig · mandelweich · die süße Seite Italiens',p:9.50,a:'',typ:''},
-  {k:'COCKTAIL',n:'Vodka Lemon',d:'Vodka · Zitrone · Rohrzucker · Soda · 0,2 l',dt:'Frisch & leicht · erfrischend-herb',p:9.50,a:'',typ:''},
-  {k:'WEIN',n:'Hauswein Rot',d:'0,2 l · 5,50 € / 0,75 l · 25,00 €',dt:'Forouge · Marche Rosso IGT BIO · Santa Barbara',p:5.50,a:'L',typ:'kalt'},
-  {k:'WEIN',n:'Hauswein Weiß',d:'0,2 l · 5,50 € / 0,75 l · 25,00 €',dt:'Sonne 2023 · Silvaner trocken · Weingut Heimig · Franken',p:5.50,a:'L',typ:''},
-  {k:'WEIN',n:'Vernaccia',d:'Weißwein · 0,2 l · 7,50 € / 0,75 l · 29,00 €',dt:'Vernaccia di San Gimignano DOCG BIO · Poggio Alloro',p:7.50,a:'L',typ:''},
-  {k:'WEIN',n:'Sangiovese',d:'Rotwein · 0,2 l · 7,50 € / 0,75 l · 29,00 €',dt:'Germoglio Rosso Toscana IGT BIO · Le Filigare',p:7.50,a:'L',typ:''},
-  {k:'WEIN',n:'Weinschorle',d:'Hauswein Weiß · Sprudelwasser · 0,4 l',dt:'',p:4.90,a:'L',typ:''},
-  {k:'WEIN',n:'Bio Prosecco',d:'0,1 l · 4,00 € / 0,75 l · 25,00 €',dt:'Valdo · Treviso DOC BIO · feinperlig-frisch',p:4.00,a:'L',typ:''},
-  {k:'WEIN',n:'Alta Langa Contratto',d:'0,1 l · 7,00 € / 0,75 l · 35,00 €',dt:'Alta Langa DOCG Millesimato BIO · Piemonte · feinperlig',p:7.00,a:'L',typ:''},
-  {k:'BIER',n:'Helles / Radler',d:'HB München · vom Fass · 0,5 l',dt:'',p:5.20,a:'A',typ:''},
-  {k:'BIER',n:'Weissbier / Russ',d:'HB München · vom Fass · 0,5 l',dt:'',p:5.40,a:'A',typ:''},
-  {k:'BIER',n:'Helles alkoholfrei',d:'HB München · 0,5 l',dt:'',p:5.20,a:'A',typ:''},
-  {k:'BIER',n:'Weissbier alkoholfrei',d:'HB München · 0,5 l',dt:'',p:5.20,a:'A',typ:''},
-  {k:'ALKOHOLFREI',n:'Lammsbräu Now',d:'verschiedene Sorten · 0,5 l',dt:'',p:4.20,a:'',typ:''},
-  {k:'ALKOHOLFREI',n:'Cola light',d:'Lammsbräu · 0,33 l',dt:'',p:3.70,a:'1',typ:''},
-  {k:'ALKOHOLFREI',n:'Adelholzener Bio Schorle',d:'verschiedene Sorten · 0,5 l',dt:'',p:4.20,a:'',typ:''},
-  {k:'ALKOHOLFREI',n:'Adelholzener Wasser',d:'Still · Sanft · Spritzig · 0,5 l',dt:'',p:3.00,a:'',typ:''},
-  {k:'KAFFEE',n:'Espresso / Tee',d:'',dt:'',p:2.50,a:'',typ:''},
-  {k:'KAFFEE',n:'Doppio',d:'',dt:'',p:3.50,a:'',typ:''},
-  {k:'KAFFEE',n:'Haferl Kaffee',d:'',dt:'',p:3.20,a:'G',typ:''},
-  {k:'KAFFEE',n:'Americano',d:'',dt:'',p:3.00,a:'',typ:''},
-  {k:'KAFFEE',n:'Cappuccino',d:'',dt:'',p:3.20,a:'G',typ:''},
+  {k:'PIZZA',n:'Salami',d:'Tomatensauce · Käse · Salami',dt:'',p:9.00,a:'A, G',typ:''},
+  {k:'PIZZA',n:'Margherita',d:'Tomatensauce · Käse · Basilikum',dt:'auch als Kinderpizza',p:7.00,a:'A, G',typ:'veggi'},
+  {k:'PIZZA',n:'Funghi',d:'Tomatensauce · Käse · frische Champignons',dt:'',p:8.00,a:'A, G',typ:'veggi'},
+  {k:'PIZZA',n:'Regina',d:'Tomatensauce · Käse · Schinken · frische Champignons',dt:'',p:9.00,a:'A, G',typ:''},
+  {k:'PIZZA',n:'Diavola',d:'Tomatensauce · Käse · scharfe Salami · Peperoni',dt:'',p:9.00,a:'A, G',typ:''},
+  {k:'PIZZA',n:'Prosciutto',d:'Tomatensauce · Käse · Prosciutto',dt:'',p:9.00,a:'A, G',typ:''},
+  {k:'PIZZA',n:'Salami e Prosciutto',d:'Tomatensauce · Käse · Salami · Prosciutto',dt:'',p:9.50,a:'A, G',typ:''},
+  {k:'PIZZA',n:'Spinaci e Gorgonzola',d:'Tomatensauce · Käse · Blattspinat · Gorgonzola',dt:'',p:8.00,a:'A, G',typ:'veggi'},
+  {k:'PIZZA',n:'Milano',d:'Tomatensauce · Käse · Salami · frische Champignons',dt:'',p:9.00,a:'A, G',typ:''},
+  {k:'PIZZA',n:'Vegetaria',d:'Tomatensauce · Käse · Paprika · Zucchini · Oliven · Rucola',dt:'auf Wunsch vegan (ohne Käse)',p:8.00,a:'A, G, L',typ:'veggi'},
+  {k:'PIZZA',n:'Spicy Hawaii',d:'Tomatensauce · Käse · scharfe Salami · Ananas',dt:'',p:9.50,a:'A, G',typ:'',neu:true},
+  {k:'PIZZA',n:'Veggie Hawaii',d:'Tomatensauce · Käse · Ananas',dt:'',p:8.00,a:'A, G',typ:'veggi',neu:true},
+  {k:'PIZZA',n:'Pane Speciale',d:'Tomatensauce · Knoblauch · Olivenöl · Parmesan · Petersilie',dt:'',p:7.00,a:'A, G',typ:'veggi'},
+  {k:'PIZZA',n:'Italiana',d:'Tomatensauce · Käse · Cherrytomaten · Rucola · Parmesan',dt:'',p:8.00,a:'A, G',typ:'veggi'},
+  {k:'PIZZA',n:'Pane Rosso',d:'Tomatensauce · Knoblauch · Olivenöl · Oregano',dt:'',p:5.00,a:'A',typ:'vegan'},
+  {k:'PIZZA',n:'Pane Bianco',d:'Knoblauch-Olivenöl · Rosmarin · Meersalz',dt:'',p:4.50,a:'A',typ:'vegan'},
+  {k:'PIZZA',n:'XL-Pizza des Tages',d:'täglich wechselnd · fragen Sie unser Team',dt:'',p:12.50,a:'A, G',typ:'',bes:true},
+  {k:'HEISS',n:'Glühwein rot / weiß',d:'0,2 l',dt:'',p:4.50,a:'L',typ:'',bio:true},
+  {k:'HEISS',n:'Apfidos',d:'Bio-Apfelsaft heiß oder kalt · Calvados · 0,2 l',dt:'',p:4.50,a:'',typ:''},
+  {k:'HEISS',n:'Goldener Engel',d:'heißer Bio-Apfelsaft · Bio-Eierlikör · Sahne · Zimt · 0,2 l',dt:'',p:4.50,a:'C, G',typ:'',bio:true},
+  {k:'HEISS',n:'Jagertee',d:'heißer Bio-Fairtrade-Schwarztee · Stroh 80 · 0,2 l',dt:'',p:4.90,a:'',typ:''},
+  {k:'HEISS',n:'Glühgin',d:'Gin · heißer Bio-Apfelsaft · Zimt · Orange · 0,2 l',dt:'',p:6.50,a:'',typ:''},
+  {k:'HEISS',n:'Hot Spritz',d:'Aperol · heißer Bio-Apfelsaft · Orange · Zimt · 0,25 l',dt:'',p:7.20,a:'2',typ:''},
+  {k:'HEISS',n:'Hot Hugo',d:'Bio-Prosecco · Bio-Holundersirup · heißes Wasser · Minze · Limette · 0,25 l',dt:'',p:7.20,a:'L',typ:''},
+  {k:'HEISS',n:'Apfelpunsch',d:'heißer Bio-Apfelsaft · Zimt · 0,2 l',dt:'',p:3.50,a:'',typ:'af',bio:true},
+  {k:'BIER',n:'Augustiner Hell',d:'0,33 l',dt:'',p:4.00,a:'A',typ:''},
+  {k:'BIER',n:'Weißbier / Russ',d:'Augustiner Weißbier · Russ mit NOW Zitrone · 0,5 l',dt:'',p:5.40,a:'A',typ:''},
+  {k:'BIER',n:'Riedenburger Emmer',d:'0,5 l',dt:'',p:5.20,a:'A',typ:'',bio:true},
+  {k:'BIER',n:'Alkfrei',d:'Riedenburger · Augustiner · 0,5 l',dt:'',p:5.20,a:'A',typ:'af'},
+  {k:'WEIN',n:'Wein rot / weiß',d:'0,2 l',dt:'',p:5.50,a:'L',typ:''},
+  {k:'WEIN',n:'Weinschorle',d:'Weißwein · Sprudelwasser · 0,4 l',dt:'',p:4.90,a:'L',typ:''},
+  {k:'WEIN',n:'Flasche Wein',d:'rot oder weiß · 0,75 l',dt:'',p:25.00,a:'L',typ:''},
+  {k:'ALKOHOLFREI',n:'NOW Bio-Limonade',d:'Orange · Zitrone · 0,5 l',dt:'',p:4.20,a:'',typ:''},
+  {k:'ALKOHOLFREI',n:'Adelholzener Bio-Schorle',d:'0,5 l',dt:'',p:4.20,a:'',typ:''},
+  {k:'ALKOHOLFREI',n:'Adelholzener Wasser',d:'Classic · Still · 0,5 l',dt:'',p:3.00,a:'',typ:''},
+  {k:'ALKOHOLFREI',n:'Apfelpunsch',d:'heißer Bio-Apfelsaft · Zimt · 0,2 l',dt:'',p:3.50,a:'',typ:'',bio:true},
   {k:'KAFFEE',n:'Latte Macchiato',d:'',dt:'',p:3.50,a:'G',typ:''},
-  {k:'KAFFEE',n:'Affogato',d:'Espresso · Vanilleeis',dt:'',p:5.50,a:'G',typ:''},
-  {k:'KAFFEE',n:'Eiskaffee',d:'',dt:'',p:6.50,a:'G',typ:''},
-  {k:'KAFFEE',n:'Corretto',d:'Espresso mit Grappa',dt:'',p:4.90,a:'G',typ:''},
+  {k:'KAFFEE',n:'Kakao',d:'',dt:'',p:3.50,a:'G',typ:''},
+  {k:'KAFFEE',n:'Cappuccino',d:'',dt:'',p:3.20,a:'G',typ:''},
+  {k:'KAFFEE',n:'Kaffee Haferl',d:'',dt:'',p:3.20,a:'',typ:''},
+  {k:'KAFFEE',n:'Espresso',d:'',dt:'',p:2.50,a:'',typ:''},
+  {k:'KAFFEE',n:'Espresso doppio',d:'',dt:'',p:3.50,a:'',typ:''},
+  {k:'KAFFEE',n:'Tee im Glas',d:'',dt:'',p:2.50,a:'',typ:''},
+  {k:'KAFFEE',n:'Corretto',d:'Espresso · Grappa',dt:'',p:6.00,a:'',typ:''},
+  {k:'SPRITZ',n:'Aperol Spritz',d:'Bio-Prosecco · Aperol · Soda · Orange · 0,25 l',dt:'',p:7.20,a:'L, 2',typ:''},
+  {k:'SPRITZ',n:'Hugo',d:'Bio-Prosecco · Bio-Holundersirup · Soda · Minze · Limette · 0,25 l',dt:'',p:7.20,a:'L',typ:''},
+  {k:'SPRITZ',n:'Lillet Holunder',d:'Bio-Prosecco · Lillet Blanc · NOW Bio-Holunder · Minze · 0,25 l',dt:'',p:7.20,a:'L',typ:''},
+  {k:'COCKTAIL',n:'Einen im Tee',d:'Cold Brew Black Tea · Rum · Zitrone · Honig- oder Zimtsirup',dt:'',p:9.50,a:'',typ:''},
+  {k:'COCKTAIL',n:'RUMgeMATCHA',d:'Bio-Matcha · dunkler Rum · Vanille · Ahornsirup · Bio-Milch',dt:'',p:9.50,a:'G',typ:''},
+    {k:'COCKTAIL',n:'Gin Tonic',d:'Gin · Tonic · Limette',dt:'',p:9.50,a:'13',typ:''},
   {k:'KURZE',n:'Averna',d:'',dt:'',p:3.50,a:'',typ:''},
   {k:'KURZE',n:'Ramazzotti',d:'',dt:'',p:3.50,a:'',typ:''},
   {k:'KURZE',n:'Grappa',d:'',dt:'',p:3.50,a:'',typ:''},
   {k:'KURZE',n:'Limoncello',d:'',dt:'',p:3.50,a:'',typ:''},
-  {k:'KURZE',n:'Amaro del Capo',d:'',dt:'',p:3.50,a:'',typ:''},
 ];
 
 const TABS=[
   {k:'PIZZA',l:'Pizza'},
+  {k:'HEISS',l:'Heiß'},
   {k:'BIER',l:'Bier'},
-  {k:'WEIN',l:'Wein'},
+  {k:'WEIN',l:'Wein · Bio'},
   {k:'ALKOHOLFREI',l:'Alkoholfrei'},
-  {k:'KAFFEE',l:'Kaffee'},
-  {k:'GEBÄCK',l:'Gebäck'},
+  {k:'KAFFEE',l:'Kaffee & Tee · Bio'},
   {k:'SPRITZ',l:'Spritz'},
   {k:'COCKTAIL',l:'Cocktails'},
   {k:'KURZE',l:'Kurze'},
@@ -201,6 +193,8 @@ function renderItem(r){
       <div class="nr">
         ${tagH(r.typ)}
         <span class="n">${r.n}</span>
+        ${r.bio?'<span class="tag tb">bio</span>':''}
+        ${r.neu?'<span class="tag tn">neu</span>':''}
         ${r.a?`<span class="al">${r.a}</span>`:''}
         ${r.typ==='af'?'<span class="tag taf">alkoholfrei</span>':''}
       </div>
@@ -220,7 +214,7 @@ function renderTab(k){
       <div class="kg">${items.map(r=>`<span class="kt">${r.n}</span>`).join('')}</div>
       <div class="kp">
         <div class="kpi"><span class="kpl">2 cl</span><span class="kpv">3,50 €</span></div>
-        <div class="kpi"><span class="kpl">4 cl</span><span class="kpv">6,50 €</span></div>
+        <div class="kpi"><span class="kpl">4 cl</span><span class="kpv">6,00 €</span></div>
       </div>
     </div>`;
   }
@@ -228,21 +222,23 @@ function renderTab(k){
     const normal=items.filter(r=>!r.bes);
     const bes=items.filter(r=>r.bes);
     return `
-      <div class="sec"><div class="sec-t">Alle Pizzen</div>${normal.map(renderItem).join('')}</div>
+      <div class="sec"><div class="sec-t">Pizza · alle Zutaten Bio</div>${normal.map(renderItem).join('')}</div>
       ${bes.length?`<div class="hl"><div class="sec" style="padding-bottom:.8rem">
-        <div class="sec-t" style="margin-top:.3rem">Besondere</div>
+        <div class="sec-t" style="margin-top:.3rem">XL-Pizza</div>
         ${bes.map(renderItem).join('')}
       </div></div>`:''}
-      <div class="ext"><strong>Extras:</strong> Standard +1 € · Knoblauch +1,50 € · Gemüse +1,50 € · Parmesan +2 € · Salami scharf +2 € · Speck +2 € · Gorgonzola +2 €</div>`;
+      <div class="ext"><strong>Extras je Zutat +2,00 €</strong> · z. B. Rucola · Champignons · Oliven · Peperoni · Ananas · Salami · Prosciutto · Gorgonzola · Parmesan</div>`;
   }
   const label=TABS.find(t=>t.k===k)?.l||k;
-  return `<div class="sec"><div class="sec-t">${label}</div>${items.map(renderItem).join('')}</div>`;
+  const schuss='<strong>Schuss 1,50 €</strong> · Rum oder Amaretto';
+  const note=k==='KAFFEE'?`<div class="ext">${schuss}<br>Kaffee &amp; Tee Bio &amp; Fairtrade · <strong>Hafer- oder Sojamilch ohne Aufpreis</strong></div>`:k==='HEISS'?`<div class="ext">${schuss}</div>`:'';
+  return `<div class="sec"><div class="sec-t">${label}</div>${items.map(renderItem).join('')}</div>${note}`;
 }
 
 function footer(){
   return `<footer>
-    <div><strong>A</strong> Gluten &nbsp;<strong>E</strong> Soja &nbsp;<strong>G</strong> Milch/Laktose &nbsp;<strong>H</strong> Nüsse &nbsp;<strong>L</strong> Sulfite &nbsp;<strong>1</strong> Farbstoff &nbsp;<strong>2</strong> Farbstoff (Aperol/Campari) &nbsp;&nbsp;<strong>13</strong> Chinin (Cocktails)</div>
-    <div class="fn">Alle Zutaten Bio · DE-ÖKO-006 · Preise inkl. 7% MwSt. · Pfand 2 € · Stand 48 · Benaco GmbH · Tollwood 2026</div>
+    <div><strong>A</strong> Gluten &nbsp;<strong>C</strong> Ei &nbsp;<strong>G</strong> Milch/Laktose &nbsp;<strong>L</strong> Sulfite &nbsp;<strong>2</strong> Farbstoff (Aperol) &nbsp;<strong>13</strong> Chinin (Gin Tonic)</div>
+    <div class="fn">Pizza: alle Zutaten Bio · DE-ÖKO-039 · Preise inkl. MwSt. · Pfand 2 € · Stand 38 · Benaco GmbH · Tollwood Winter 2026</div>
   </footer>`;
 }
 
