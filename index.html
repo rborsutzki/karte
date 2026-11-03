@@ -124,7 +124,7 @@ const DATA = [
   {k:'PIZZA',n:'Vegetaria',d:'Tomatensauce · Käse · Paprika · Zucchini · Oliven · Rucola',dt:'auf Wunsch vegan (ohne Käse)',p:8.00,a:'A, G, L',typ:'veggi'},
   {k:'PIZZA',n:'Spicy Hawaii',d:'Tomatensauce · Käse · scharfe Salami · Ananas',dt:'',p:9.50,a:'A, G',typ:'',neu:true},
   {k:'PIZZA',n:'Veggie Hawaii',d:'Tomatensauce · Käse · Ananas',dt:'',p:8.00,a:'A, G',typ:'veggi',neu:true},
-  {k:'PIZZA',n:'Monte Baldo',d:'Tomatensauce · Käse · Bio-Speck · rote Zwiebeln · Rosmarin',dt:'',p:9.50,a:'A, G',typ:'',neu:true},
+  {k:'PIZZA',n:'Monte Baldo',d:'Tomatensauce · Käse · Speck · rote Zwiebeln · Rosmarin',dt:'',p:9.50,a:'A, G',typ:'',neu:true},
   {k:'PIZZA',n:'Pane Speciale',d:'Tomatensauce · Knoblauch · Olivenöl · Parmesan · Petersilie',dt:'',p:7.00,a:'A, G',typ:'veggi'},
   {k:'PIZZA',n:'Italiana',d:'Tomatensauce · Käse · Cherrytomaten · Rucola · Parmesan',dt:'',p:8.00,a:'A, G',typ:'veggi'},
   {k:'PIZZA',n:'Pane Rosso',d:'Tomatensauce · Knoblauch · Olivenöl · Oregano',dt:'',p:5.00,a:'A',typ:'vegan'},
@@ -224,7 +224,7 @@ const EN_T={
   '4 cl Grappa':'4 cl grappa','Soda':'soda','Lillet Blanc':'Lillet Blanc','NOW Bio-Holunder':'NOW organic elderflower',
   'Cold Brew Black Tea':'cold brew black tea','Rum':'rum','Honig- oder Zimtsirup':'honey or cinnamon syrup',
   'Bio-Matcha':'organic matcha','dunkler Rum':'dark rum','Vanille':'vanilla','Ahornsirup':'maple syrup',
-  'Bio-Milch':'organic milk','Amaretto':'amaretto','heißer Amaretto':'hot amaretto','Bio-Speck':'organic speck (smoked ham)','rote Zwiebeln':'red onions','Tonic':'tonic',
+  'Bio-Milch':'organic milk','Amaretto':'amaretto','heißer Amaretto':'hot amaretto','Speck':'speck (smoked ham)','rote Zwiebeln':'red onions','Tonic':'tonic',
 };
 
 // FLASH SALE KONFIGURATION
@@ -306,8 +306,8 @@ function renderTab(k){
 
 function footer(){
   return `<footer>
-    <div>${T('<strong>A</strong> Gluten &nbsp;<strong>C</strong> Ei &nbsp;<strong>G</strong> Milch/Laktose &nbsp;<strong>L</strong> Sulfite &nbsp;<strong>2</strong> Farbstoff (Aperol) &nbsp;<strong>13</strong> Chinin (Gin Tonic)',
-      '<strong>A</strong> gluten &nbsp;<strong>C</strong> egg &nbsp;<strong>G</strong> milk/lactose &nbsp;<strong>L</strong> sulphites &nbsp;<strong>2</strong> colouring (Aperol) &nbsp;<strong>13</strong> quinine (gin tonic)')}</div>
+    <div>${T('<strong>A</strong> Gluten &nbsp;<strong>C</strong> Ei &nbsp;<strong>G</strong> Milch &nbsp;<strong>L</strong> Sulfite &nbsp;<strong>2</strong> Farbstoff (Aperol) &nbsp;<strong>13</strong> Chinin (Gin Tonic)',
+      '<strong>A</strong> gluten &nbsp;<strong>C</strong> egg &nbsp;<strong>G</strong> milk &nbsp;<strong>L</strong> sulphites &nbsp;<strong>2</strong> colouring (Aperol) &nbsp;<strong>13</strong> quinine (gin tonic)')}</div>
     <div class="fn">${T('Pizza: alle Zutaten Bio · DE-ÖKO-039 · Preise inkl. MwSt. · Pfand 2 € · Stand 38 · Benaco GmbH · Tollwood Winter 2026',
       'Pizza: all ingredients organic · DE-ÖKO-039 · prices incl. VAT · deposit 2 € · stand 38 · Benaco GmbH · Tollwood Winter 2026')}</div>
   </footer>`;
