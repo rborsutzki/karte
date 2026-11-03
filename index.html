@@ -134,7 +134,7 @@ const DATA = [
   {k:'HEISS',n:'Apfidos',d:'Bio-Apfelsaft heiß oder kalt · Calvados · 0,2 l',dt:'',p:4.50,a:'',typ:''},
   {k:'HEISS',n:'Goldener Engel',d:'heißer Bio-Apfelsaft · Bio-Eierlikör · Sahne · Zimt · 0,2 l',dt:'',p:4.50,a:'C, G',typ:'',bio:true},
   {k:'HEISS',n:'Amaretto mit Sahne',d:'heißer Amaretto · Sahne · 4 cl',dt:'',p:4.50,a:'G',typ:''},
-  {k:'HEISS',n:'Jagertee',d:'heißer Bio-Fairtrade-Schwarztee · Stroh 80 · 0,2 l',dt:'',p:4.90,a:'',typ:''},
+  {k:'HEISS',n:'Jagertee',d:'heißer Bio-Fairtrade-Schwarztee · Stroh 80 · 0,2 l',dt:'',p:4.90,a:'2',typ:''},
   {k:'HEISS',n:'Glühgin',d:'Gin · heißer Bio-Apfelsaft · Zimt · Orange · 0,2 l',dt:'',p:6.50,a:'',typ:''},
   {k:'HEISS',n:'Hot Spritz',d:'Aperol · heißer Bio-Apfelsaft · Orange · Zimt · 0,25 l',dt:'',p:7.20,a:'2',typ:''},
   {k:'HEISS',n:'Hot Hugo',d:'Bio-Prosecco · Bio-Holundersirup · heißes Wasser · Minze · Limette · 0,25 l',dt:'',p:7.20,a:'L',typ:''},
@@ -306,8 +306,8 @@ function renderTab(k){
 
 function footer(){
   return `<footer>
-    <div>${T('<strong>A</strong> Gluten &nbsp;<strong>C</strong> Ei &nbsp;<strong>G</strong> Milch &nbsp;<strong>L</strong> Sulfite &nbsp;<strong>2</strong> Farbstoff (Aperol) &nbsp;<strong>13</strong> Chinin (Gin Tonic)',
-      '<strong>A</strong> gluten &nbsp;<strong>C</strong> egg &nbsp;<strong>G</strong> milk &nbsp;<strong>L</strong> sulphites &nbsp;<strong>2</strong> colouring (Aperol) &nbsp;<strong>13</strong> quinine (gin tonic)')}</div>
+    <div>${T('<strong>A</strong> Gluten &nbsp;<strong>C</strong> Ei &nbsp;<strong>G</strong> Milch &nbsp;<strong>L</strong> Sulfite &nbsp;<strong>2</strong> Farbstoff (Aperol, Stroh) &nbsp;<strong>13</strong> Chinin (Gin Tonic)',
+      '<strong>A</strong> gluten &nbsp;<strong>C</strong> egg &nbsp;<strong>G</strong> milk &nbsp;<strong>L</strong> sulphites &nbsp;<strong>2</strong> colouring (Aperol, Stroh) &nbsp;<strong>13</strong> quinine (gin tonic)')}</div>
     <div class="fn">${T('Pizza: alle Zutaten Bio · DE-ÖKO-039 · Preise inkl. MwSt. · Pfand 2 € · Stand 38 · Benaco GmbH · Tollwood Winter 2026',
       'Pizza: all ingredients organic · DE-ÖKO-039 · prices incl. VAT · deposit 2 € · stand 38 · Benaco GmbH · Tollwood Winter 2026')}</div>
   </footer>`;
