@@ -117,8 +117,8 @@ const DATA = [
   {k:'PIZZA',n:'Funghi',d:'Tomatensauce · Käse · frische Champignons',dt:'',p:8.00,a:'A, G',typ:'veggi'},
   {k:'PIZZA',n:'Regina',d:'Tomatensauce · Käse · Schinken · frische Champignons',dt:'',p:9.00,a:'A, G',typ:''},
   {k:'PIZZA',n:'Diavola',d:'Tomatensauce · Käse · scharfe Salami · Peperoni',dt:'',p:9.00,a:'A, G',typ:''},
-  {k:'PIZZA',n:'Prosciutto',d:'Tomatensauce · Käse · Prosciutto',dt:'',p:9.00,a:'A, G',typ:''},
-  {k:'PIZZA',n:'Salami e Prosciutto',d:'Tomatensauce · Käse · Salami · Prosciutto',dt:'',p:9.50,a:'A, G',typ:''},
+  {k:'PIZZA',n:'Prosciutto',d:'Tomatensauce · Käse · Schinken',dt:'',p:9.00,a:'A, G',typ:''},
+  {k:'PIZZA',n:'Salami e Prosciutto',d:'Tomatensauce · Käse · Salami · Schinken',dt:'',p:9.50,a:'A, G',typ:''},
   {k:'PIZZA',n:'Spinaci e Gorgonzola',d:'Tomatensauce · Käse · Blattspinat · Gorgonzola',dt:'',p:8.00,a:'A, G',typ:'veggi'},
   {k:'PIZZA',n:'Milano',d:'Tomatensauce · Käse · Salami · frische Champignons',dt:'',p:9.00,a:'A, G',typ:''},
   {k:'PIZZA',n:'Vegetaria',d:'Tomatensauce · Käse · Paprika · Zucchini · Oliven · Rucola',dt:'auf Wunsch vegan (ohne Käse)',p:8.00,a:'A, G, L',typ:'veggi'},
@@ -295,8 +295,8 @@ function renderTab(k){
         <div class="sec-t" style="margin-top:.3rem">${T('XL-Pizza','XL pizza')}</div>
         ${bes.map(renderItem).join('')}
       </div></div>`:''}
-      <div class="ext">${T('<strong>Extras je Zutat +2,00 €</strong> · z. B. Rucola · Champignons · Oliven · Peperoni · Ananas · Salami · Prosciutto · Gorgonzola · Parmesan',
-        '<strong>Extra toppings +2,00 € each</strong> · e.g. rocket · mushrooms · olives · hot peppers · pineapple · salami · prosciutto · gorgonzola · parmesan')}</div>`;
+      <div class="ext">${T('<strong>Extras je Zutat +2,00 €</strong> · z. B. Rucola · Champignons · Oliven · Peperoni · Ananas · Salami · Schinken · Gorgonzola · Parmesan',
+        '<strong>Extra toppings +2,00 € each</strong> · e.g. rocket · mushrooms · olives · hot peppers · pineapple · salami · ham · gorgonzola · parmesan')}</div>`;
   }
   const tab=TABS.find(t=>t.k===k); const label=tab?T(tab.l,tab.e):k;
   const schuss=T('<strong>Schuss 1,50 €</strong> · Rum oder Amaretto','<strong>Add a shot 1,50 €</strong> · rum or amaretto');
